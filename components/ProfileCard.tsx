@@ -1,6 +1,7 @@
 // ProfileCard.tsx
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 interface ProfileCardProps {
   name: string;
@@ -23,8 +24,24 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   imageUrl,
   isNew,
 }) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+    style={styles.card}
+    onPress={() =>
+      navigation.navigate('details', {
+        name,
+        expertise,
+        language,
+        experience,
+        rate,
+        orders,
+        imageUrl,
+        isNew,
+      })
+    }
+  >
       <View style={styles.profileInfo}>
         <Image source={{ uri: imageUrl }} style={styles.profileImage} />
         <View style={styles.details}>
@@ -40,7 +57,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       <TouchableOpacity style={styles.chatButton}>
         <Text style={styles.chatButtonText}>Chat</Text>
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 };
 

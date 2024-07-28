@@ -18,16 +18,23 @@
 // }
 
 // Index.tsx
+import { Link } from 'expo-router';
 import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import ProfileCard from '../components/ProfileCard';
 import Navbar from "../components/navbar";
+import { View, Text, StyleSheet } from 'react-native';
+import HomeScreen from '../components/HomeScreen';
 
 const Index = () => {
   return (
     <SafeAreaView>
       <ScrollView>
         <Navbar/>
+
+        
+      
+       
         <ProfileCard
           name="AnuradhaM"
           expertise="Vedic, Numerology, Vastu"
@@ -38,6 +45,7 @@ const Index = () => {
           imageUrl="https://ik.imagekit.io/demo/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg"
           isNew={false}
         />
+       
         <ProfileCard
           name="Bupathi"
           expertise="Vedic, Nadi"
@@ -72,7 +80,7 @@ const Index = () => {
       language="Tamil, Hindi"
       experience="Exp: 8 Years"
       rate="12"
-      orders="20217"
+      orders="207"
       imageUrl="https://ik.imagekit.io/demo/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg"
       isNew={true}
     />
@@ -80,5 +88,13 @@ const Index = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default Index;
